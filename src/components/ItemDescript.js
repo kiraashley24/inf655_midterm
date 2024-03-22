@@ -3,8 +3,8 @@ import React from 'react';
 const ItemDescript = [
   {
     id: 1,
-    name: "Product 1",
-    image: "url_to_image",
+    name: "Begonia",
+    image: "../img/begonia.jpg",
     price: 10.99,
   },
   {
