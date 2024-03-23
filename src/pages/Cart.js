@@ -4,15 +4,21 @@ import ItemDescript from '../components/ItemDescript';
 
 const Cart = ({ cart, removeFromCart }) => {
   const [items, setItems] = useState([]);
-  const [quantity, setQuantity] = useState(1); // Default quantity to 1
+  const [quantities, setQuantities] = useState({}); // Store quantities for each item
 
   const handleAddToCart = (productId) => {
     const product = ItemDescript.find((item) => item.id === productId);
-    if (product) {
-      const updatedCart = [...items, { ...product, quantity }];
+    if (product && quantities[productId] > 0) {
+      const updatedCart = [...items, { ...product, quantity: quantities[productId] }];
       setItems(updatedCart);
-      setQuantity(1); // Reset quantity to 1 after adding to cart
+      setQuantities({ ...quantities, [productId]: 1 }); // Reset quantity to 1 after adding to cart
+    } else {
+      alert('You must add at least one item.');
     }
+  };
+
+  const handleQuantityChange = (productId, newQuantity) => {
+    setQuantities({ ...quantities, [productId]: newQuantity });
   };
 
   const handleRemoveFromCart = (productId) => {
@@ -35,8 +41,8 @@ const Cart = ({ cart, removeFromCart }) => {
                 type="number"
                 id={`quantity-${item.id}`}
                 min="1"
-                value={quantity}
-                onChange={(e) => setQuantity(parseInt(e.target.value))}
+                value={quantities[item.id] || 0}
+                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
               />
               <button
                 onClick={() => handleAddToCart(item.id)}
