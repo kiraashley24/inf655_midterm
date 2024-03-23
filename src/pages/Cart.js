@@ -31,7 +31,7 @@ const Cart = ({ cart, removeFromCart }) => {
     <div className="cart">
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">Add to Cart</h5>
+          <h5 className="card-title">Items</h5>
           {ItemDescript.map((item) => (
             <div key={item.id} className="cart-item">
               <h6>{item.name}</h6>
