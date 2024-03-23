@@ -70,7 +70,8 @@ const Cart = ({ cart, removeFromCart }) => {
               </button>
             </div>
           ))}
-          <Link to="/checkout" className="btn btn-success">Buy Products</Link>
+          <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
+
         </div>
       </div>
     </div>
