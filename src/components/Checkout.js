@@ -10,32 +10,40 @@ const Checkout = ({ cart, total }) => {
 
   return (
     <div className="checkout">
-      <h2>Checkout</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" required />
+      <div className="card">
+        <div className="card-body">
+          <h2>Checkout</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" className="form-control" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" className="form-control" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="address">Address:</label>
+              <textarea id="address" className="form-control" required />
+            </div>
+            <button type="submit" className="btn btn-primary">Place Order</button>
+          </form>
+          <Link to="/cart">Back to Cart</Link>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" required />
+      </div>
+      <div className="card mt-3">
+        <div className="card-body">
+          <h3>Order Summary:</h3>
+          <ul>
+            {cart.map((item) => (
+              <li key={item.id}>
+                {item.name} - ${item.price.toFixed(2)} - Quantity: {item.quantity}
+              </li>
+            ))}
+          </ul>
+          <p>Total: ${total.toFixed(2)}</p>
         </div>
-        <div>
-          <label htmlFor="address">Address:</label>
-          <textarea id="address" required />
-        </div>
-        <h3>Order Summary:</h3>
-        <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price.toFixed(2)} - Quantity: {item.quantity}
-            </li>
-          ))}
-        </ul>
-        <p>Total: ${total.toFixed(2)}</p>
-        <button type="submit">Place Order</button>
-      </form>
-      <Link to="/cart">Back to Cart</Link>
+      </div>
     </div>
   );
 };

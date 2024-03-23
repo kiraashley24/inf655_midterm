@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ItemDescript from '../components/ItemDescript';
 
-const Cart = () => {
+const Cart = ({ cart, removeFromCart }) => {
   const [items, setItems] = useState([]);
 
   const handleAddToCart = (productId, quantity) => {
@@ -15,6 +16,7 @@ const Cart = () => {
   const handleRemoveFromCart = (productId) => {
     const updatedCart = items.filter((item) => item.id !== productId);
     setItems(updatedCart);
+    removeFromCart(productId);
   };
 
   return (
@@ -59,6 +61,7 @@ const Cart = () => {
               </button>
             </div>
           ))}
+          <Link to="/checkout" className="btn btn-success">Buy Products</Link>
         </div>
       </div>
     </div>
