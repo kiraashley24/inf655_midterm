@@ -4,12 +4,14 @@ import ItemDescript from '../components/ItemDescript';
 
 const Cart = ({ cart, removeFromCart }) => {
   const [items, setItems] = useState([]);
+  const [quantity, setQuantity] = useState(1); // Default quantity to 1
 
-  const handleAddToCart = (productId, quantity) => {
+  const handleAddToCart = (productId) => {
     const product = ItemDescript.find((item) => item.id === productId);
     if (product) {
       const updatedCart = [...items, { ...product, quantity }];
       setItems(updatedCart);
+      setQuantity(1); // Reset quantity to 1 after adding to cart
     }
   };
 
@@ -32,11 +34,12 @@ const Cart = ({ cart, removeFromCart }) => {
               <input
                 type="number"
                 id={`quantity-${item.id}`}
-                min="0"
-                defaultValue="0"
+                min="1"
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value))}
               />
               <button
-                onClick={() => handleAddToCart(item.id, parseInt(document.getElementById(`quantity-${item.id}`).value))}
+                onClick={() => handleAddToCart(item.id)}
                 className="btn btn-primary"
               >
                 Add to Cart
