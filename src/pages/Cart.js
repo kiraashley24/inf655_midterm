@@ -12,6 +12,11 @@ const Cart = () => {
     }
   };
 
+  const handleRemoveFromCart = (productId) => {
+    const updatedCart = items.filter((item) => item.id !== productId);
+    setItems(updatedCart);
+  };
+
   return (
     <div className="cart">
       <div className="card">
@@ -46,6 +51,12 @@ const Cart = () => {
               <h6>{item.name}</h6>
               <p>Price: ${item.price.toFixed(2)}</p>
               <p>Quantity: {item.quantity}</p>
+              <button
+                onClick={() => handleRemoveFromCart(item.id)}
+                className="btn btn-danger"
+              >
+                Remove from Cart
+              </button>
             </div>
           ))}
         </div>
