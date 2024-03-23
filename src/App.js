@@ -36,17 +36,15 @@ const App = () => {
 
   return (
     <Router>
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />
-          <Route path="/productdetail" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-          <Route path="/checkout" element={<Checkout cart={cart} total={calculateTotal()} setCart={setCart} handleSubmit={handleSubmit} />} />
-          <Route path="/thankyou" element={<ThankYou />} /> 
-        </Routes>
-      </div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />
+        <Route path="/productdetail" element={<ProductDetail />} />
+        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+        <Route path="/checkout" element={<Checkout cart={cart} total={calculateTotal()} setCart={setCart} handleSubmit={handleSubmit} />} />
+        <Route path="/thankyou" element={<ThankYou />} /> 
+      </Routes>
     </Router>
   );
 };

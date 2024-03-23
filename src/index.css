@@ -1,16 +1,19 @@
-body {
-  font-family: Arial, sans-serif;
+
+*{
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 100px;
+  padding-top: 100px;
   background-color: #f0b9d9;
 }
+
 
 h1 {
   text-align: center;
@@ -18,29 +21,31 @@ h1 {
 
 nav {
   display: flex;
-  justify-content: center;
-  list-style-type: none;
+  justify-content: space-between;
   padding: 0;
   display: inline;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
 }
 
 nav a {
   color: #f0b9d9;
   text-decoration: none;
-  margin: 0 10px;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 5px;
 }
 
 nav a:hover {
-  background-color: #555;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  flex-direction:row;
+  background-color: #e81388;
 }
 
 .header {
@@ -50,9 +55,12 @@ ul {
   width: 100%;
   background-color: #f4dbec;
   color: white;
-  text-align: center;
-  padding: 5px 0;
-  height: 100px; 
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .header-link {
@@ -65,6 +73,12 @@ ul {
 
 .header-link:hover {
   background-color: #555;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
@@ -94,17 +108,21 @@ ul {
 .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  max-height: 600px; /* Set a maximum height for the products container */
-  overflow-y: auto; /* Add vertical scroll if content overflows */
+  justify-content: center;
+  gap: 20px; 
+  margin-top: 20px; 
+  padding: 0 20px;
+  background-color: #f4dbec;
 }
 
 .product-card {
-  flex: 1 1 300px; /* Set a flexible width for each product card */
+  flex: 1 1 300px; 
   border: 1px solid #ccc;
   border-radius: 5px;
-  overflow: hidden;
+  overflow: auto;
   background-color: #f0b9d9;
+  width: 200px; 
+  max-height: 200px;
 }
 
 .product-card img {
@@ -116,7 +134,7 @@ ul {
   padding: 20px;
 }
 
-/* Optional: Add hover effect */
 .product-card:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+

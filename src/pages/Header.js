@@ -8,19 +8,13 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/" className="header-link">
-              Home
-            </NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/productdetail" className="header-link">
-              Products
-            </NavLink>
+            <NavLink to="/productdetail">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/cart" className="header-link">
-              Cart
-            </NavLink>
+            <NavLink to="/cart">Cart</NavLink>
           </li>
         </ul>
       </nav>
