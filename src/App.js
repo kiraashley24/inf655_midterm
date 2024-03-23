@@ -38,7 +38,6 @@ const App = () => {
     <Router>
       <div className="app">
         <Header />
-        <h1>Shopping Cart</h1>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />

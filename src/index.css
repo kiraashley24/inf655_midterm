@@ -9,100 +9,85 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f8f9fa;
-}
-
-.container {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  background-color: #f0b9d9;
 }
 
 h1 {
   text-align: center;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  display: inline;
+}
+
+nav a {
+  color: #f0b9d9;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-direction:row;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f4dbec;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  height: 100px; 
+}
+
+.header-link {
+  color: #f0b9d9;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.header-link:hover {
+  background-color: #555;
+}
+
 .card {
-  background-color: #fff;
+  background-color: #f4dbec;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  max-width: 1000px;
+  overflow: hidden; 
   padding: 20px;
-  margin-bottom: 20px;
 }
 
-.task-form {
+.card-body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.task-form div {
-  margin-bottom: 10px;
+.card img {
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
 }
 
-.task-form label {
-  font-weight: bold;
-}
-
-.task-form input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.task-form button {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.task-form button:hover {
-  background-color: #0056b3;
-}
-
-.item-card {
-  background-color: #f8f9fa;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.checkboxes {
-  display: flex;
-  align-items: center;
-}
-
-.item-title {
-  margin: 0;
-  flex-grow: 1;
-}
-
-.checked {
-  text-decoration: line-through;
-  color: #6c757d;
-}
-
-.edit-button,
-.delete-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
-  color: #007bff;
-}
-
-.delete-button:hover {
-  color: #dc3545;
-}
-
-.edit-button:hover {
-  color: #0056b3;
-}

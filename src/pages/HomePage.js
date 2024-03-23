@@ -11,7 +11,7 @@ const HomePage = () => {
         <p>Spring is upon us...which means it's time to order your spring flowers! 
           We offer a wide variety of annual flowers that can be shipped right to your
           door. We only deliver the best quality products! Feel free to browse our 
-          products <Link to="/products">here</Link>, and when you're ready to order, just visit our cart
+          products <Link to="/productdetail">here</Link>, and when you're ready to order, just visit our cart
           page <Link to="/cart">here!</Link>
         </p>
       </div>
