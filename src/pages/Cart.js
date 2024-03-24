@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemDescript from '../components/ItemDescript';
 
+// Import the CSS class for smaller images
+// Assuming Cart.css is the file where you define the smaller-image class
+
 const Cart = ({ cart, removeFromCart }) => {
   const [items, setItems] = useState([]);
   const [quantities, setQuantities] = useState({}); // Store quantities for each item
@@ -35,6 +38,7 @@ const Cart = ({ cart, removeFromCart }) => {
           {ItemDescript.map((item) => (
             <div key={item.id} className="cart-item">
               <h6>{item.name}</h6>
+              <img src={item.image} alt={item.name} />
               <p>Price: ${item.price.toFixed(2)}</p>
               <label htmlFor={`quantity-${item.id}`}>Quantity:</label>
               <input
@@ -59,19 +63,17 @@ const Cart = ({ cart, removeFromCart }) => {
           <h5 className="card-title">Shopping Cart</h5>
           {items.map((item) => (
             <div key={item.id} className="cart-item">
+              <img src={item.image} alt={item.name} className="smaller-image" />
               <h6>{item.name}</h6>
               <p>Price: ${item.price.toFixed(2)}</p>
               <p>Quantity: {item.quantity}</p>
-              <button
-                onClick={() => handleRemoveFromCart(item.id)}
-                className="btn btn-danger"
-              >
+              <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-danger">
                 Remove from Cart
               </button>
             </div>
           ))}
-          <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
 
+          <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
-const Checkout = ({ cart, total }) => {
+const Checkout = ({ cart, setCart, handleSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -11,15 +10,11 @@ const Checkout = ({ cart, total }) => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleAddressChange = (e) => setAddress(e.target.value);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission, such as sending the order to a backend server
-    console.log('Order submitted!');
-    // Clear the cart here
-    // setCart([]);
-    // Redirect to the Thank You page
-    window.location.href = '/thankyou'; // Directly change the URL
+  const calculateTotal = () => {
+    return cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   };
+
+  const total = calculateTotal();
 
   return (
     <div className="checkout">
@@ -39,13 +34,14 @@ const Checkout = ({ cart, total }) => {
         </div>
         <h3>Order Summary:</h3>
         <ul>
-          {cart.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price.toFixed(2)} - Quantity: {item.quantity}
-            </li>
-          ))}
-        </ul>
-        <p>Total: ${total.toFixed(2)}</p>
+        {cart.map((item) => (
+          <li key={item.id}>
+            {item.name} - ${typeof item.price === 'number' ? item.price : 'N/A'} - Quantity: {item.quantity}
+          </li>
+        ))}
+      </ul>
+      <p>Total: ${typeof total === 'number' ? total : 'N/A'}</p>
+
         <button type="submit">Place Order</button>
       </form>
       <Link to="/cart">Back to Cart</Link>
@@ -54,3 +50,4 @@ const Checkout = ({ cart, total }) => {
 };
 
 export default Checkout;
+
