@@ -33,7 +33,7 @@ const App = () => {
     // Define your search logic here
     console.log('Search term:', searchTerm);
   };
-  
+
   const handleSubmit = (formData) => {
     // Handle form submission logic here
     console.log('Form submitted:', formData);
@@ -46,7 +46,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />
-          <Route path="/productdetail" element={<ProductDetail handleSearch={handleSearch} />} />
+          <Route path="/productdetail" element={<ProductDetail products={ItemDescript} handleSearch={handleSearch} />} />
+
           <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
           <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} totalPrice={calculateTotal()} handleSubmit={handleSubmit} />} />
           <Route path="/thankyou" element={<ThankYou />} />
