@@ -1,9 +1,11 @@
 import React from 'react';
 import ItemDescript from '../components/ItemDescript';
+import Search from '../components/Search'; 
 
-const ProductDetail = () => {
+const ProductDetail = ({ handleSearch }) => {
   return (
     <div className="products">
+      <Search handleSearch={handleSearch} /> {/* Add the Search component */}
       {ItemDescript.map((product) => (
         <div key={product.id} className="product-card">
           <img src={product.image} alt={product.name} />
