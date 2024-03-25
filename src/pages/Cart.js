@@ -85,7 +85,11 @@ const Cart = ({ cart, removeFromCart }) => {
             <div>
               <h5>Total Price: ${totalPrice.toFixed(2)}</h5>
             </div>
-            <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
+            <Link to={{ pathname: '/checkout', state: { items: items, totalPrice: totalPrice } }}>Checkout</Link>
+
+
+
+
           </div>
         </div>
       </div>
