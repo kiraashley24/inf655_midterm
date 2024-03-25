@@ -29,6 +29,9 @@ const Cart = ({ cart, removeFromCart }) => {
     removeFromCart(productId);
   };
 
+   // Calculate total price
+   const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
+
   return (
     <div className="cart">
       <div className="card">
@@ -79,6 +82,9 @@ const Cart = ({ cart, removeFromCart }) => {
                 </button>
               </div>
             ))}
+            <div>
+              <h5>Total Price: ${totalPrice.toFixed(2)}</h5>
+            </div>
             <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
           </div>
         </div>
