@@ -105,6 +105,11 @@ nav a:hover {
   display: block; 
 }
 
+.card-title {
+  font-size: large;
+  text-decoration: underline;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +117,7 @@ nav a:hover {
   gap: 20px; 
   margin-top: 20px; 
   padding: 0 20px;
-  background-color: #f4dbec;
+  background-color: #f0b9d9;
 }
 
 .product-card {

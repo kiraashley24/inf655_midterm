@@ -4,9 +4,6 @@ import ItemDescript from '../components/ItemDescript';
 import { RiHeartAddLine } from "react-icons/ri";
 import { VscRemove } from "react-icons/vsc";
 
-// Import the CSS class for smaller images
-// Assuming Cart.css is the file where you define the smaller-image class
-
 const Cart = ({ cart, removeFromCart }) => {
   const [items, setItems] = useState([]);
   const [quantities, setQuantities] = useState({}); // Store quantities for each item
