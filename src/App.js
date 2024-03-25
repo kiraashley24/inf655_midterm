@@ -8,7 +8,8 @@ import ItemDescript from './components/ItemDescript';
 import ProductDetail from './pages/ProductDetail';
 import HomePage from './pages/HomePage';
 import Checkout from './components/Checkout';
-import ThankYou from './pages/thankyou'; 
+import ThankYou from './pages/thankyou';
+import { CartProvider } from './components/context/CartContext'; 
 
 const App = () => {
   const [cart, setCart] = useState([]);
@@ -21,9 +22,8 @@ const App = () => {
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
-    console.log('Cart item removed:', productId); // Add this line to log when an item is removed
-};
-
+    console.log('Cart item removed:', productId); 
+  };
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -36,15 +36,17 @@ const App = () => {
 
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />
-        <Route path="/productdetail" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} totalPrice={calculateTotal()} handleSubmit={handleSubmit} />} />
-        <Route path="/thankyou" element={<ThankYou />} /> 
-      </Routes>
+      <CartProvider> {/* Wrap your entire application with CartProvider */}
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<Products products={ItemDescript} addToCart={addToCart} />} />
+          <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
+          <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} totalPrice={calculateTotal()} handleSubmit={handleSubmit} />} />
+          <Route path="/thankyou" element={<ThankYou />} />
+        </Routes>
+      </CartProvider>
     </Router>
   );
 };
