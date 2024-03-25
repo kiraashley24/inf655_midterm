@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Search from '../components/Search'; // Import the Search component
+import Search from '../components/Search'; // Search component
 
 const ProductDetail = ({ products, handleSearch }) => {
   // Assume ItemDescript is an array of products
@@ -17,7 +17,7 @@ const ProductDetail = ({ products, handleSearch }) => {
 
   return (
     <div className="products">
-      <Search handleSearch={handleSearch} /> {/* Add the Search component */}
+      <Search handleSearch={handleSearch} /> {/* Search component */}
       <input
         type="text"
         placeholder="Search product by flower"
