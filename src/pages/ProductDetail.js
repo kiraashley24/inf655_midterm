@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import ItemDescript from '../components/ItemDescript';
-import Search from '../components/Search'; 
+import Search from '../components/Search'; // Import the Search component
 
-const ProductDetail = ({ handleSearch }) => {
+const ProductDetail = ({ products, handleSearch }) => {
   // Assume ItemDescript is an array of products
   const [searchTerm, setSearchTerm] = useState('');
   
   // Filter products based on search term
-  const filteredProducts = ItemDescript.filter(product =>
+  const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -21,7 +20,7 @@ const ProductDetail = ({ handleSearch }) => {
       <Search handleSearch={handleSearch} /> {/* Add the Search component */}
       <input
         type="text"
-        placeholder="Search product by name"
+        placeholder="Search product by flower"
         value={searchTerm}
         onChange={handleChange}
       />

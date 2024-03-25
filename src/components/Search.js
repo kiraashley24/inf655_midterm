@@ -5,24 +5,13 @@ const Search = ({ handleSearch }) => {
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSearch(searchTerm);
-    setSearchTerm('');
+    handleSearch(e.target.value); // Update the search term in the parent component
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search for flower by name"
-        value={searchTerm}
-        onChange={handleChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      {/* You can remove the input field and the button */}
+    </div>
   );
 };
 
