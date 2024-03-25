@@ -61,23 +61,24 @@ const Cart = ({ cart, removeFromCart }) => {
             ))}
           </div>
         </div>
-       </div> 
+      </div> 
       <div className="card mt-3">
         <div className="card-body">
           <h5 className="card-title">Shopping Cart</h5>
-          {items.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.name} className="smaller-image" />
-              <h6>{item.name}</h6>
-              <p>Price: ${item.price.toFixed(2)}</p>
-              <p>Quantity: {item.quantity}</p>
-              <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-danger">
-                Remove from Cart
-              </button>
-            </div>
-          ))}
-
-          <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
+          <div className="small-items">
+            {items.map((item) => (
+              <div key={item.id} className="small-card">
+                <img src={item.image} alt={item.name} className="small-image" />
+                <h6>{item.name}</h6>
+                <p>Price: ${item.price.toFixed(2)}</p>
+                <p>Quantity: {item.quantity}</p>
+                <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-danger">
+                  Remove from Cart
+                </button>
+              </div>
+            ))}
+            <Link to={items.length > 0 ? "/checkout" : "/cart"} className="btn btn-success">Buy Products</Link>
+          </div>
         </div>
       </div>
     </div>
