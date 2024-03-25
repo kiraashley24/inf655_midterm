@@ -139,7 +139,7 @@ nav a:hover {
 }
 
 .medium-card {
-  flex: 1 1 300px; 
+  flex: 1 1 200px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
@@ -151,6 +151,15 @@ nav a:hover {
 .medium-card img {
   width: 100%;
   height: auto;
+}
+
+.medium-card-title {
+  font-size: 1rem; /* Adjust the font size as needed */
+  margin-bottom: 5px;
+}
+
+.medium-card-text {
+  font-size: 0.8rem;
 }
 
 .medium-card-body {
@@ -169,6 +178,11 @@ nav a:hover {
   margin-top: 20px; 
   padding: 0 20px;
   
+}
+
+.medium-card-body input[type="number"] {
+  width: 50px; /* Set the width to make the input box smaller */
+  padding: 5px; /* Add padding for better appearance */
 }
 
 .medium-card:hover {
@@ -196,3 +210,34 @@ nav a:hover {
   justify-content: center;
 }
 
+.btn-add {
+  padding: 0.25rem 0.5rem; /* Adjust padding for smaller button */
+  font-size: 0.875rem; /* Adjust font size for smaller button */
+  font-weight: bold;
+  width: 40px;
+  background-color: #f4dbec;
+  color: #e81388;
+  border-color: #f4dbec;
+  align-self: flex-end;
+}
+
+.btn-delete {
+  padding: 0.25rem 0.5rem; /* Adjust padding for smaller button */
+  font-size: 0.875rem; /* Adjust font size for smaller button */
+  font-weight: bold;
+  width: 40px;
+  background-color: #f4dbec;
+  color: #e81388;
+  border-color: #f4dbec;
+  align-self: flex-end;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* Add spacing between quantity and button */
+}
+
+.quantity-container label {
+  margin-right: 8px; /* Add spacing between label and input */
+}

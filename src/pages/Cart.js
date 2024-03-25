@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemDescript from '../components/ItemDescript';
+import { RiHeartAddLine } from "react-icons/ri";
+import { VscRemove } from "react-icons/vsc";
 
 // Import the CSS class for smaller images
 // Assuming Cart.css is the file where you define the smaller-image class
@@ -38,10 +40,11 @@ const Cart = ({ cart, removeFromCart }) => {
           <div className="medium-items">
             {ItemDescript.map((item) => (
               <div key={item.id} className="medium-card">
-                <img src={item.image} alt={item.name} className="card-img-top" />
-                <div className="medium-card-body">
-                  <h5 className="medium-card-title">{item.name}</h5>
-                  <p className="medium-card-text">Price: ${item.price.toFixed(2)}</p>
+              <img src={item.image} alt={item.name} className="card-img-top" />
+              <div className="medium-card-body">
+                <h5 className="medium-card-title">{item.name}</h5>
+                <p className="medium-card-text">Price: ${item.price.toFixed(2)}</p><br />
+                <div className="quantity-container">
                   <label htmlFor={`quantity-${item.id}`}>Quantity:</label>
                   <input
                     type="number"
@@ -51,13 +54,15 @@ const Cart = ({ cart, removeFromCart }) => {
                     onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
                   />
                   <button
-                    onClick={() => handleAddToCart(item.id)}
-                    className="btn btn-primary"
-                  >
-                  Add to Cart
-                  </button>
+                  onClick={() => handleAddToCart(item.id)}
+                  className="btn btn-add btn-primary"
+                >
+                  <RiHeartAddLine />
+                </button>
                 </div>
               </div>
+            </div>
+            
             ))}
           </div>
         </div>
@@ -72,8 +77,8 @@ const Cart = ({ cart, removeFromCart }) => {
                 <h6>{item.name}</h6>
                 <p>Price: ${item.price.toFixed(2)}</p>
                 <p>Quantity: {item.quantity}</p>
-                <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-danger">
-                  Remove from Cart
+                <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-delete btn-danger">
+                  <VscRemove />
                 </button>
               </div>
             ))}
