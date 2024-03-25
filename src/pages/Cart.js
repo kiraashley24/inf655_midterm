@@ -35,29 +35,33 @@ const Cart = ({ cart, removeFromCart }) => {
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">Items</h5>
-          {ItemDescript.map((item) => (
-            <div key={item.id} className="cart-item">
-              <h6>{item.name}</h6>
-              <img src={item.image} alt={item.name} />
-              <p>Price: ${item.price.toFixed(2)}</p>
-              <label htmlFor={`quantity-${item.id}`}>Quantity:</label>
-              <input
-                type="number"
-                id={`quantity-${item.id}`}
-                min="1"
-                value={quantities[item.id] || 0}
-                onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-              />
-              <button
-                onClick={() => handleAddToCart(item.id)}
-                className="btn btn-primary"
-              >
-                Add to Cart
-              </button>
-            </div>
-          ))}
+          <div className="medium-items">
+            {ItemDescript.map((item) => (
+              <div key={item.id} className="medium-card">
+                <img src={item.image} alt={item.name} className="card-img-top" />
+                <div className="medium-card-body">
+                  <h5 className="medium-card-title">{item.name}</h5>
+                  <p className="medium-card-text">Price: ${item.price.toFixed(2)}</p>
+                  <label htmlFor={`quantity-${item.id}`}>Quantity:</label>
+                  <input
+                    type="number"
+                    id={`quantity-${item.id}`}
+                    min="1"
+                    value={quantities[item.id] || 0}
+                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                  />
+                  <button
+                    onClick={() => handleAddToCart(item.id)}
+                    className="btn btn-primary"
+                  >
+                  Add to Cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+       </div> 
       <div className="card mt-3">
         <div className="card-body">
           <h5 className="card-title">Shopping Cart</h5>
