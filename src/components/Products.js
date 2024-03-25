@@ -1,16 +1,17 @@
 import React from 'react';
-import ProductDetail from '../pages/ProductDetail';
+import Product from './Product';
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   return (
     <div className="products">
       {products.map((product) => (
-        <ProductDetail
+        <Product
           key={product.id}
+          id={product.id}
           name={product.name}
           image={product.image}
-          description={product.description}
           price={product.price}
+          onAddToCart={onAddToCart}
         />
       ))}
     </div>

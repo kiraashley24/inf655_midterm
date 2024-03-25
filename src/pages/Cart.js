@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import ItemDescript from '../components/ItemDescript';
 import { RiHeartAddLine } from "react-icons/ri";
 import { VscRemove } from "react-icons/vsc";
+import { CartContext } from '../components/context/CartContext';
+import { useContext } from 'react';
 
-const Cart = ({ cart, removeFromCart }) => {
+
+const Cart = ({ removeFromCart }) => {
+  const { cart: contextCart } = useContext(CartContext);
   const [items, setItems] = useState([]);
   const [quantities, setQuantities] = useState({}); // Store quantities for each item
 
@@ -13,7 +17,7 @@ const Cart = ({ cart, removeFromCart }) => {
     if (product && quantities[productId] > 0) {
       const updatedCart = [...items, { ...product, quantity: quantities[productId] }];
       setItems(updatedCart);
-      setQuantities({ ...quantities, [productId]: 1 }); // Reset quantity to 1 after adding to cart
+      setQuantities({ ...quantities, [productId]: 0 }); // Reset quantity to 0 after adding to cart
     } else {
       alert('You must add at least one item.');
     }
