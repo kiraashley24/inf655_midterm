@@ -75,6 +75,11 @@ nav a:hover {
   background-color: #555;
 }
 
+.footer {
+  margin-top: 50px;
+  text-align: center;
+}
+
 .app {
   display: flex;
   flex-direction: column;
