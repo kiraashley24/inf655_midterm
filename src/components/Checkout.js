@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../components/context/CartContext';
+import Cart from '../pages/Cart';
 
-const Checkout = ({ cart, setCart, handleSubmit, totalPrice }) => {
+const Checkout = () => {
+  const { cart, setCart, handleSubmit, totalPrice } = useContext(CartContext);
   
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,7 +16,7 @@ const Checkout = ({ cart, setCart, handleSubmit, totalPrice }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // Call the handleSubmit function passed from props
+    // Call the handleSubmit function from the CartContext
     handleSubmit({ name, email, address, items: cart, totalPrice });
     // Reset the form state
     setName('');
@@ -47,7 +50,7 @@ const Checkout = ({ cart, setCart, handleSubmit, totalPrice }) => {
             </li>
           ))}
         </ul>
-        <p>Total: ${totalPrice.toFixed(2)}</p>
+        <p>Total: {typeof totalPrice === 'number' ? `$${totalPrice.toFixed(2)}` : 'Calculating...'}</p>
 
         <button type="submit">Place Order</button>
       </form>

@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ItemDescript from '../components/ItemDescript';
 import { RiHeartAddLine } from "react-icons/ri";
 import { VscRemove } from "react-icons/vsc";
 import { CartContext } from '../components/context/CartContext';
-import { useContext } from 'react';
 
-
-const Cart = ({ removeFromCart }) => {
-  const { cart: contextCart } = useContext(CartContext);
+const Cart = () => {
+  const { cart, removeFromCart} = useContext(CartContext);
   const [items, setItems] = useState([]);
   const [quantities, setQuantities] = useState({}); // Store quantities for each item
+  const navigate = useNavigate();
 
   const handleAddToCart = (productId) => {
     const product = ItemDescript.find((item) => item.id === productId);
@@ -33,8 +32,14 @@ const Cart = ({ removeFromCart }) => {
     removeFromCart(productId);
   };
 
-   // Calculate total price
-   const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
+  const handleCheckout = () => {
+    navigate({
+      pathname: '/checkout',
+      state: { items: items, totalPrice: totalPrice }
+    });
+  };
+
+  const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <div className="cart">
@@ -66,7 +71,6 @@ const Cart = ({ removeFromCart }) => {
                 </div>
               </div>
             </div>
-            
             ))}
           </div>
         </div>
@@ -89,11 +93,7 @@ const Cart = ({ removeFromCart }) => {
             <div>
               <h5>Total Price: ${totalPrice.toFixed(2)}</h5>
             </div>
-            <Link to={{ pathname: '/checkout', state: { items: items, totalPrice: totalPrice } }}>Checkout</Link>
-
-
-
-
+            <button onClick={handleCheckout}>Checkout</button>
           </div>
         </div>
       </div>
