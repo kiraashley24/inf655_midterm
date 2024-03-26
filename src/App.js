@@ -8,6 +8,7 @@ import Cart from './pages/Cart';
 import ItemDescript from './components/ItemDescript';
 import ProductDetail from './pages/ProductDetail';
 import HomePage from './pages/HomePage';
+import Search from './components/Search';
 import Checkout from './components/Checkout';
 import ThankYou from './pages/thankyou';
 import { CartProvider } from './components/context/CartContext'; 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<Products products={ItemDescript} />} />
           <Route path="/productdetail" element={<ProductDetail products={ItemDescript} />} />
+          <Route path="search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/thankyou" element={<ThankYou />} />
