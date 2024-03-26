@@ -17,7 +17,7 @@ const ProductDetail = ({ products, handleSearch }) => {
 
   return (
     <div className="products">
-      <Search handleSearch={handleSearch} /> {/* Search component */}
+      <Search handleSearch={handleSearch} />
       <input
         type="text"
         className='search-bar'
@@ -27,7 +27,11 @@ const ProductDetail = ({ products, handleSearch }) => {
       />
       {filteredProducts.map((product) => (
         <div key={product.id} className="product-card">
-          <img src={product.image} alt={product.name} />
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-image"
+          />
           <div className="product-card-body">
             <h2>{product.name}</h2>
             <p>{product.description}</p>

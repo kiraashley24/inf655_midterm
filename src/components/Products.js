@@ -1,3 +1,4 @@
+//Receives product details and renders card
 import React from 'react';
 import ProductDetail from '../pages/ProductDetail';
 

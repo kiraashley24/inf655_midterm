@@ -33,6 +33,10 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
+    if (items.length === 0) {
+      alert('Your cart is empty. Please add items to your cart before checking out.');
+      return;
+    }
     navigate({
       pathname: '/checkout',
       state: { items: items, totalPrice: totalPrice }
@@ -97,9 +101,8 @@ const Cart = () => {
             <div>
               <h5>Total Price: ${totalPrice.toFixed(2)}</h5>
             </div>
-            <button onClick={handleCheckout}>Checkout</button>
+            <button type="submit" className="btn btn-order" onClick={handleCheckout}>Checkout</button>
           </div>
-
         </div>
       </div>
     </div>

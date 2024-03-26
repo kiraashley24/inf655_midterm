@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 const Search = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Update the search term in the parent component
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
-    handleSearch(e.target.value); // Update the search term in the parent component
+    handleSearch(e.target.value); 
   };
 
   return (
     <div>
-      {/* You can remove the input field and the button */}
+      {/*search-bar*/}
     </div>
   );
 };

@@ -18,10 +18,7 @@ const CartProvider = ({ children }) => {
   
 
   const handleSubmit = (formData) => {
-    // Handle form submission logic here
     console.log('Form submitted:', formData);
-    // Optionally clear the cart after submission
-    
   };
 
   return (

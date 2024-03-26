@@ -1,3 +1,4 @@
+//maps over productdetails
 import React from 'react';
 
 const Product = ({ id, name, image, price, onAddToCart }) => {
