@@ -81,13 +81,17 @@ const Cart = () => {
           <div className="small-items">
             {items.map((item) => (
               <div key={item.id} className="small-card">
-                <img src={item.image} alt={item.name} className="small-image" />
-                <h6>{item.name}</h6>
-                <p>Price: ${item.price.toFixed(2)}</p>
-                <p>Quantity: {item.quantity}</p>
-                <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-delete btn-danger">
+                <div className="small-card-content">
+                  <img src={item.image} alt={item.name} className="small-image" />
+                  <div className="small-details">
+                    <h6 className="small-card-title">{item.name}</h6>
+                    <p className="small-card-price">Price: ${item.price.toFixed(2)}</p>
+                    <p className="small-card-quantity">Quantity: {item.quantity}</p>
+                  </div>
+                  <button onClick={() => handleRemoveFromCart(item.id)} className="btn btn-delete btn-danger">
                   <VscRemove />
-                </button>
+                  </button>
+                </div>
               </div>
             ))}
             <div>
@@ -95,6 +99,7 @@ const Cart = () => {
             </div>
             <button onClick={handleCheckout}>Checkout</button>
           </div>
+
         </div>
       </div>
     </div>

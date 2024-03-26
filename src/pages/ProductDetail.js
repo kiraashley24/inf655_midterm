@@ -20,7 +20,8 @@ const ProductDetail = ({ products, handleSearch }) => {
       <Search handleSearch={handleSearch} /> {/* Search component */}
       <input
         type="text"
-        placeholder="Search product by flower"
+        className='search-bar'
+        placeholder="Search product by flower name"
         value={searchTerm}
         onChange={handleChange}
       />

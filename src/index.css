@@ -200,24 +200,36 @@ nav a:hover {
 }
 
 .small-card {
-  flex: 1 1 300px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
   background-color: white;
-  width: 200px; 
-  max-height: 800px;
 }
-.small-image {
-  width: 100px; 
-  height: auto; 
-}
-.small-card-body {
-  text-align: left;
-  padding: 20px;
+
+.small-card-content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+
+.small-image {
+  width: 100px;
+  height: auto;
+}
+
+.small-details {
+  flex: 1;
+}
+
+.small-card-title {
+  margin-bottom: 5px;
+}
+
+.small-card-price {
+  margin-bottom: 5px;
+}
+
+.small-card-quantity {
+  margin-bottom: 10px;
 }
 
 .btn-add {
@@ -239,7 +251,7 @@ nav a:hover {
   background-color: #f4dbec;
   color: #e81388;
   border-color: #f4dbec;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .quantity-container {
@@ -250,4 +262,16 @@ nav a:hover {
 
 .quantity-container label {
   margin-right: 8px; /* Add spacing between label and input */
+}
+
+.search-bar {
+  width: 25%;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin-top: 75px;
 }
